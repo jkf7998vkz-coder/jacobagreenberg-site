@@ -218,7 +218,13 @@ footer .copyright {
   max-height: 482px;
   display: flex;
   justify-content: center;
-  padding: 11% 5% 0;
+  /* padding-top targets 22% of the section's own height (106px of 482px, matching the
+     real site). Expressed as % of width (how CSS padding-top actually resolves) that's
+     10.5% while height still scales with width; clamped to a flat 106px once max-height
+     caps the section, so the title stays correctly placed at every viewport width. */
+  padding-top: clamp(0px, 10.5%, 106px);
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .play-hero h1 {
