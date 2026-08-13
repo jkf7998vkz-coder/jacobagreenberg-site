@@ -51,7 +51,11 @@ img {
 
 .site-name {
   font-family: 'EB Garamond', serif;
-  font-weight: 700;
+  /* CSS says 700, but the real site never actually loads a bold face — only regular (400) —
+     so it renders via each browser's own (mild) synthetic-bold fake-out. Relying on synthesis
+     is inconsistent across browsers/OSes; requesting 400 directly guarantees the lighter,
+     non-synthetic look the reference matches. */
+  font-weight: 400;
   font-size: 1.875rem;
   letter-spacing: 0.9px;
   color: inherit;
