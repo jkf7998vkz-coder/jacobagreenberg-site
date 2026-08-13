@@ -65,6 +65,7 @@ img {
 }
 
 .site-nav a {
+  display: block;
   font-family: 'GFS Didot', serif;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
@@ -80,6 +81,17 @@ img {
 
 .site-nav a.active {
   border: 1px solid currentColor;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem;
 }
 
 footer {
@@ -121,8 +133,8 @@ footer .copyright {
 .hero-links a {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: clamp(2rem, 7vw, 6rem);
-  line-height: 1.1;
+  font-size: clamp(1.75rem, 3.2vw, 3rem);
+  line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: 0.01em;
   color: #fff;
@@ -135,7 +147,7 @@ footer .copyright {
 .bio {
   display: flex;
   gap: 2.5rem;
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem 5rem;
   align-items: flex-start;
@@ -143,7 +155,7 @@ footer .copyright {
 }
 
 .bio img {
-  width: 200px;
+  width: 250px;
   filter: grayscale(1);
 }
 
@@ -217,11 +229,36 @@ footer .copyright {
   height: 7rem;
 }
 
-/* Body content */
+/* Body content: outer container matches the page's 1200px frame, but a single
+   paragraph reads at a narrower, more comfortable line length within it */
 main {
-  max-width: 800px;
+  max-width: 1150px;
   margin: 0 auto;
   padding: 3rem 1.5rem 4rem;
+}
+
+main > p,
+main > blockquote,
+main > .attribution {
+  max-width: 620px;
+}
+
+/* Play page: quote sits beside the opening paragraphs in two columns, not stacked */
+.hero-quote-row {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.hero-quote-row > .quote-col,
+.hero-quote-row > .text-col {
+  flex: 1 1 480px;
+}
+
+.hero-quote-row blockquote {
+  margin-top: 0;
 }
 
 main h2 {
@@ -318,10 +355,40 @@ main blockquote {
   color: #222;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 700px) {
   .site-header {
     padding: 1.25rem 1.5rem;
   }
+  .nav-toggle {
+    display: block;
+  }
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 1.5rem;
+    left: 1.5rem;
+    width: auto;
+    flex-direction: column;
+    gap: 0;
+    background: #000;
+    border: 1px solid #333;
+    padding: 0.5rem 0;
+  }
+  .site-nav.open {
+    display: flex;
+  }
+  .site-nav a {
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+  }
+  .site-nav a.active {
+    border: none;
+    background: #222;
+  }
+}
+
+@media (max-width: 640px) {
   .hero-links {
     gap: 1.5rem;
     padding: 8rem 1.5rem 3.5rem;
