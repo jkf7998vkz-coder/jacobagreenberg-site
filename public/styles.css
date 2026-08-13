@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=GFS+Didot&family=Montserrat:wght@400;700&family=Cardo:wght@400;700&family=Alegreya+SC:wght@100;400&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background: #000;
+  color: #fff;
+  font-family: 'Cardo', serif;
+  min-height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 3rem;
+}
+
+.site-name {
+  font-family: 'EB Garamond', serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  letter-spacing: 0.05em;
+  color: #ccc;
+}
+
+.site-nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  font-family: 'GFS Didot', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ddd;
+  padding: 0.4rem 0.8rem;
+  transition: color 0.2s;
+}
+
+.site-nav a:hover {
+  color: #fff;
+}
+
+.site-nav a.active {
+  border: 1px solid #666;
+}
+
+footer {
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+footer a {
+  color: #aaa;
+}
+
+/* Home page */
+.hero-links {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  padding: 4rem 1.5rem 3rem;
+}
+
+.hero-links a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.hero-links a:hover {
+  color: #ccc;
+}
+
+.bio {
+  display: flex;
+  gap: 2.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.bio img {
+  width: 200px;
+  filter: grayscale(1);
+}
+
+.bio p {
+  flex: 1;
+  min-width: 280px;
+  color: #d5d5d5;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.bio p strong {
+  color: #fff;
+}
+
+/* Page hero (background image banner) */
+.page-hero {
+  background-size: cover;
+  background-position: center;
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 3rem;
+}
+
+.page-hero h1 {
+  font-family: 'Alegreya SC', serif;
+  font-weight: 100;
+  font-size: 4.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+  line-height: 1.15;
+}
+
+/* Body content */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+main h2 {
+  font-family: 'Alegreya SC', serif;
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+main p {
+  color: #d5d5d5;
+  line-height: 1.8;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+main blockquote {
+  border-left: 2px solid #555;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #ccc;
+}
+
+main blockquote cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.track {
+  margin-bottom: 2rem;
+}
+
+.track h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: #fff;
+}
+
+.track audio {
+  width: 100%;
+}
+
+.track-with-image {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.track-with-image img {
+  width: 120px;
+  filter: grayscale(1);
+}
+
+.track-with-image .track {
+  flex: 1;
+  min-width: 240px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    padding: 1.25rem 1.5rem;
+  }
+  .hero-links {
+    gap: 2rem;
+  }
+  .hero-links a {
+    font-size: 1.4rem;
+  }
+  .page-hero h1 {
+    font-size: 2.8rem;
+  }
+}
