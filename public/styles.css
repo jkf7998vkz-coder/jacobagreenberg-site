@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=GFS+Didot&family=Montserrat:wght@400;700&family=Cardo:wght@400;700&family=Alegreya+SC:wght@100;400&family=Sorts+Mill+Goudy&family=Playfair+Display:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=GFS+Didot&family=Montserrat:wght@400;700&family=Cardo:ital,wght@0,400;0,700;1,400&family=Alegreya+SC:wght@400&family=Sorts+Mill+Goudy&family=Playfair+Display:ital@1&display=swap');
 
 * {
   box-sizing: border-box;
@@ -52,8 +52,8 @@ img {
 .site-name {
   font-family: 'EB Garamond', serif;
   font-weight: 700;
-  font-size: 1.7rem;
-  letter-spacing: 0.05em;
+  font-size: 1.875rem;
+  letter-spacing: 0.9px;
   color: inherit;
 }
 
@@ -68,10 +68,11 @@ img {
   display: block;
   font-family: 'GFS Didot', serif;
   font-size: 0.75rem;
+  line-height: 12px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: inherit;
-  padding: 0.4rem 0.8rem;
+  padding: 12px 20px;
   transition: color 0.2s;
 }
 
@@ -102,10 +103,10 @@ footer {
 footer .contact-line {
   font-family: 'Sorts Mill Goudy', serif;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   color: #fff;
   text-align: right;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto 0.75rem;
 }
 
@@ -116,6 +117,7 @@ footer .contact-line a {
 footer .copyright {
   font-family: 'EB Garamond', serif;
   font-size: 0.75rem;
+  line-height: 1.75;
   color: #fff;
 }
 
@@ -126,7 +128,7 @@ footer .copyright {
   align-items: center;
   gap: 3rem;
   flex-wrap: wrap;
-  padding: 11rem 1.5rem 5rem;
+  padding: 271.5px 1.5rem 5rem;
   text-align: center;
 }
 
@@ -168,11 +170,12 @@ footer .copyright {
 }
 
 .bio p strong {
-  color: #fff;
+  color: #d5d5d5;
 }
 
 .bio p a {
   text-decoration: underline;
+  font-weight: 700;
   color: #d5d5d5;
 }
 
@@ -180,34 +183,38 @@ footer .copyright {
   color: #fff;
 }
 
-/* Page hero (background image banner) */
+/* Page hero (background image banner) — real site right-aligns this title as stacked all-caps lines */
 .page-hero {
   background-size: cover;
   background-position: center;
-  min-height: 60vh;
+  height: clamp(320px, 52vw, 756px);
   display: flex;
   align-items: flex-end;
+  justify-content: flex-end;
   padding: 3rem;
 }
 
 .page-hero h1 {
   font-family: 'Alegreya SC', serif;
-  font-weight: 100;
-  font-size: 4.5rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #fff;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 7vw, 6.25rem);
+  letter-spacing: 5px;
+  text-align: right;
+  color: #d5d5d5;
   text-shadow: 0 2px 20px rgba(0,0,0,0.8);
   line-height: 1.15;
 }
 
-/* Play page title-card hero (image has the crisp title baked in; this h1 overlays a larger echo of it) */
+/* Play page title-card hero (image has the crisp title baked in; this h1 overlays a larger echo of it).
+   Real site keeps this section a fixed 482px tall and crops the image with background-size:cover —
+   letting height scale with the image's own aspect ratio made ours grow ~200px too tall. */
 .play-hero {
   background-image: url('images/khalid-hero.png');
   background-size: cover;
   background-position: center;
   background-color: #f4f3f1;
   aspect-ratio: 1898 / 904;
+  max-height: 482px;
   display: flex;
   justify-content: center;
   padding: 11% 5% 0;
@@ -215,9 +222,9 @@ footer .copyright {
 
 .play-hero h1 {
   font-family: 'Alegreya SC', serif;
-  font-weight: 100;
-  font-size: clamp(1.75rem, 7vw, 6.25rem);
-  letter-spacing: 0.05em;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3.2vw, 3rem);
+  letter-spacing: 5px;
   text-transform: uppercase;
   text-align: center;
   color: #e8e6e6;
@@ -285,7 +292,7 @@ main blockquote {
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-size: clamp(1.25rem, 4vw, 2.375rem);
-  line-height: 1.35;
+  line-height: 1.55;
   color: #d5d5d5;
 }
 
@@ -296,6 +303,11 @@ main blockquote {
   color: #fff;
   text-align: right;
   margin-bottom: 2rem;
+}
+
+.credit {
+  font-style: italic;
+  color: #fff;
 }
 
 .track {
@@ -320,7 +332,7 @@ main blockquote {
 }
 
 .classical-main {
-  max-width: 900px;
+  max-width: 1150px;
   margin: 0 auto;
   padding: 9rem 1.5rem 4rem;
 }
@@ -328,21 +340,26 @@ main blockquote {
 .classical-main .intro {
   font-family: 'Cardo', serif;
   font-style: italic;
-  font-size: 1.15rem;
+  font-size: 1.125rem;
   color: #626262;
   text-align: center;
   line-height: 1.7;
   margin-bottom: 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .album-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem 2.5rem;
+  grid-template-columns: repeat(2, max-content);
+  justify-content: center;
+  gap: 2rem 235px;
 }
 
 .album img {
-  width: 100%;
+  width: auto;
+  max-width: 343px;
   height: auto;
 }
 
