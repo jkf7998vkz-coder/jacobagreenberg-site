@@ -209,6 +209,7 @@ footer .copyright {
    Real site keeps this section a fixed 482px tall and crops the image with background-size:cover —
    letting height scale with the image's own aspect ratio made ours grow ~200px too tall. */
 .play-hero {
+  width: 100%;
   background-image: url('images/khalid-hero.png');
   background-size: cover;
   background-position: center;
@@ -260,12 +261,20 @@ main > .attribution {
 }
 
 .hero-quote-row > .quote-col,
-.hero-quote-row > .text-col {
+.hero-quote-row > .text-col,
+.hero-quote-row > .video-col {
   flex: 1 1 480px;
 }
 
 .hero-quote-row blockquote {
   margin-top: 0;
+}
+
+.video-col iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  display: block;
 }
 
 main h2 {
