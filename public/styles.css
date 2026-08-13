@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=GFS+Didot&family=Montserrat:wght@400;700&family=Cardo:wght@400;700&family=Alegreya+SC:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=GFS+Didot&family=Montserrat:wght@400;700&family=Cardo:wght@400;700&family=Alegreya+SC:wght@100;400&family=Sorts+Mill+Goudy&family=Playfair+Display:ital@1&display=swap');
 
 * {
   box-sizing: border-box;
@@ -24,12 +24,29 @@ img {
 }
 
 .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
   padding: 1.5rem 3rem;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+.site-header.revealed {
+  color: #fff;
+  background: #000;
+}
+
+/* Pages whose hero is a dark photo need visible (white) header text before reveal, unlike the default black-on-black home hero */
+.site-header--light:not(.revealed) {
+  color: #fff;
 }
 
 .site-name {
@@ -37,7 +54,7 @@ img {
   font-weight: 700;
   font-size: 1.7rem;
   letter-spacing: 0.05em;
-  color: #ccc;
+  color: inherit;
 }
 
 .site-nav {
@@ -52,44 +69,62 @@ img {
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #ddd;
+  color: inherit;
   padding: 0.4rem 0.8rem;
   transition: color 0.2s;
 }
 
 .site-nav a:hover {
-  color: #fff;
+  color: #ccc;
 }
 
 .site-nav a.active {
-  border: 1px solid #666;
+  border: 1px solid currentColor;
 }
 
 footer {
   text-align: center;
-  padding: 3rem 1.5rem 2rem;
-  color: #888;
-  font-size: 0.85rem;
+  padding: 3rem 1.5rem 2.5rem;
 }
 
-footer a {
-  color: #aaa;
+footer .contact-line {
+  font-family: 'Sorts Mill Goudy', serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #fff;
+  text-align: right;
+  max-width: 800px;
+  margin: 0 auto 0.75rem;
+}
+
+footer .contact-line a {
+  color: #fff;
+}
+
+footer .copyright {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.75rem;
+  color: #fff;
 }
 
 /* Home page */
 .hero-links {
   display: flex;
   justify-content: center;
-  gap: 4rem;
+  align-items: center;
+  gap: 3rem;
   flex-wrap: wrap;
-  padding: 4rem 1.5rem 3rem;
+  padding: 11rem 1.5rem 5rem;
+  text-align: center;
 }
 
 .hero-links a {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 2rem;
-  letter-spacing: 0.02em;
+  font-size: clamp(2rem, 7vw, 6rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
   color: #fff;
 }
 
@@ -102,7 +137,7 @@ footer a {
   gap: 2.5rem;
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 1.5rem 4rem;
+  padding: 0 1.5rem 5rem;
   align-items: flex-start;
   flex-wrap: wrap;
 }
@@ -121,6 +156,15 @@ footer a {
 }
 
 .bio p strong {
+  color: #fff;
+}
+
+.bio p a {
+  text-decoration: underline;
+  color: #d5d5d5;
+}
+
+.bio p a:hover {
   color: #fff;
 }
 
@@ -143,6 +187,34 @@ footer a {
   color: #fff;
   text-shadow: 0 2px 20px rgba(0,0,0,0.8);
   line-height: 1.15;
+}
+
+/* Play page title-card hero (image has the crisp title baked in; this h1 overlays a larger echo of it) */
+.play-hero {
+  background-image: url('images/khalid-hero.png');
+  background-size: cover;
+  background-position: center;
+  background-color: #f4f3f1;
+  aspect-ratio: 1898 / 904;
+  display: flex;
+  justify-content: center;
+  padding: 11% 5% 0;
+}
+
+.play-hero h1 {
+  font-family: 'Alegreya SC', serif;
+  font-weight: 100;
+  font-size: clamp(1.75rem, 7vw, 6.25rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #e8e6e6;
+  line-height: 1.15;
+  max-width: 90%;
+}
+
+.scroll-marker {
+  height: 7rem;
 }
 
 /* Body content */
@@ -169,19 +241,24 @@ main p {
 }
 
 main blockquote {
-  border-left: 2px solid #555;
-  padding-left: 1.5rem;
-  margin: 2rem 0;
+  background: #222;
+  border-left: 4px solid #ddd;
+  padding: 2.25rem 2.5rem 2.25rem 1.5rem;
+  margin: 2rem 0 0.75rem;
+  font-family: 'Playfair Display', serif;
   font-style: italic;
-  color: #ccc;
+  font-size: clamp(1.25rem, 4vw, 2.375rem);
+  line-height: 1.35;
+  color: #d5d5d5;
 }
 
-main blockquote cite {
-  display: block;
-  margin-top: 0.5rem;
-  font-style: normal;
-  font-size: 0.85rem;
-  color: #888;
+.attribution {
+  font-family: 'Cardo', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: #fff;
+  text-align: right;
+  margin-bottom: 2rem;
 }
 
 .track {
@@ -200,23 +277,45 @@ main blockquote cite {
   width: 100%;
 }
 
-.track-with-image {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  margin-bottom: 2.5rem;
-  flex-wrap: wrap;
+/* Classical page: real site uses a plain white section here, not the dark theme */
+.light-section {
+  background: #fff;
 }
 
-.track-with-image img {
-  width: 120px;
-  filter: grayscale(1);
+.classical-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 9rem 1.5rem 4rem;
 }
 
-.track-with-image .track {
-  flex: 1;
-  min-width: 240px;
+.classical-main .intro {
+  font-family: 'Cardo', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #626262;
+  text-align: center;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+.album-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem 2.5rem;
+}
+
+.album img {
+  width: 100%;
+  height: auto;
+}
+
+.album .track {
+  margin-top: 1rem;
   margin-bottom: 0;
+}
+
+.album .track h3 {
+  color: #222;
 }
 
 @media (max-width: 640px) {
@@ -224,12 +323,25 @@ main blockquote cite {
     padding: 1.25rem 1.5rem;
   }
   .hero-links {
-    gap: 2rem;
+    gap: 1.5rem;
+    padding: 8rem 1.5rem 3.5rem;
   }
   .hero-links a {
-    font-size: 1.4rem;
+    font-size: 2.2rem;
   }
   .page-hero h1 {
     font-size: 2.8rem;
+  }
+  .scroll-marker {
+    height: 6rem;
+  }
+  footer .contact-line {
+    text-align: center;
+  }
+  .album-grid {
+    grid-template-columns: 1fr;
+  }
+  .play-hero {
+    padding-top: 16%;
   }
 }
