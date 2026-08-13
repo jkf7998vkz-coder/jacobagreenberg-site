@@ -218,11 +218,11 @@ footer .copyright {
   max-height: 482px;
   display: flex;
   justify-content: center;
-  /* padding-top targets 22% of the section's own height (106px of 482px, matching the
-     real site). Expressed as % of width (how CSS padding-top actually resolves) that's
-     10.5% while height still scales with width; clamped to a flat 106px once max-height
-     caps the section, so the title stays correctly placed at every viewport width. */
-  padding-top: clamp(0px, 10.5%, 106px);
+  /* padding-top targets a fixed 192.5px once the section is capped at 482px tall (confirmed
+     identical on the real site at both 1536px and 2016px width — it's a constant, not scaled).
+     Expressed as % of width (how CSS padding-top actually resolves) that's 19% while height
+     still scales with width below the cap, so the title stays correctly placed at every width. */
+  padding-top: clamp(0px, 19%, 192.5px);
   padding-left: 5%;
   padding-right: 5%;
 }
@@ -236,7 +236,7 @@ footer .copyright {
   text-align: center;
   color: #e8e6e6;
   line-height: 1.15;
-  max-width: 90%;
+  max-width: min(90%, 1120px);
 }
 
 .scroll-marker {
