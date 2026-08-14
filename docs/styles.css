@@ -234,7 +234,11 @@ footer .copyright {
 .play-hero h1 {
   font-family: 'Alegreya SC', serif;
   font-weight: 400;
-  font-size: clamp(1.5rem, 3.2vw, 3rem);
+  /* Must hit its 3rem (48px) cap at the same ~1013px width where the section's padding-top
+     above caps out — otherwise there's a range where padding is already final but the
+     line-height gap (which depends on font-size) hasn't caught up, and the second line
+     collides with the hero image's baked-in "A true story" text. */
+  font-size: clamp(1.5rem, 4.74vw, 3rem);
   letter-spacing: 5px;
   text-transform: uppercase;
   text-align: center;
